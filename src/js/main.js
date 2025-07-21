@@ -6,6 +6,7 @@ const paginationContainer = document.getElementById("pagination");
 const searchInput = document.getElementById("searchInput");
 const dateFromInput = document.getElementById("dateFrom");
 const dateToInput = document.getElementById("dateTo");
+const BASE_URL = "https://dummyjson.com/todos";
 
 let todos = []; // All todos from API
 let currentPage = 1; // Which page we are on
@@ -23,7 +24,7 @@ async function fetchTodos() {
     todos = data.todos;
     renderTodos();
   } catch (error) {
-    console.error("Error fetching todos:", error);
+    alert("Error fetching todos:" + error);
     container.innerHTML = "<p class='text-red-500'>Failed to load todos.</p>";
   }
 }
@@ -72,7 +73,8 @@ function renderTodos(todoArray = todos) {
       const isCompleted = e.target.checked;
 
       try {
-        const res = await fetch(`https://dummyjson.com/todos/${todoId}`, {
+        console.log(`${BASE_URL}/${todoId}`);
+        const res = await fetch(`${BASE_URL}/${todoId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ completed: isCompleted }),
@@ -84,7 +86,7 @@ function renderTodos(todoArray = todos) {
 
         renderTodos(todoArray); // Re-render with same filtered list
       } catch (err) {
-        alert("Error updating checkbox:", err);
+        alert("Error updating checkbox:" + err);
       }
     });
   });
@@ -122,6 +124,7 @@ addBtn.addEventListener("click", async () => {
   }
 
   const newTask = {
+    id: Math.floor(100 + Math.random() * 9000),
     todo: `${title} - ${description}`, // merged with " - "
     completed: false,
     userId: 5,
@@ -129,17 +132,16 @@ addBtn.addEventListener("click", async () => {
   };
 
   try {
-    const res = await fetch("https://dummyjson.com/todos/add", {
+    const res = await fetch(`${BASE_URL}/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newTask),
     });
-    console.log(newTask);
 
     const data = await res.json();
-    todos.push({ ...data, createdAt: newTask.createdAt }); // New at top
+    todos.push({ ...data, createdAt: newTask.createdAt,id: newTask.id, }); // New at top
     titleInput.value = "";
     descInput.value = "";
     searchInput.value = "";
@@ -207,7 +209,7 @@ function renderFilteredTodos(filteredTodos) {
       const isCompleted = e.target.checked;
 
       try {
-        const res = await fetch(`https://dummyjson.com/todos/${todoId}`, {
+        const res = await fetch(`${BASE_URL}/${todoId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -264,7 +266,6 @@ function filterByDate() {
     return false;
   });
 
-  console.log("Matched todos:", filteredTodos.length);
   renderTodos(filteredTodos);
 }
 

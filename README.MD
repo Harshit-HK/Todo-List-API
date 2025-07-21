@@ -5,10 +5,12 @@ All core features like **adding**, **searching**, **date filtering**, **paginati
 
 ---
 
+>## ⚠️ **Note:** Update the `BASE_URL` in `main.js` if the dummy API gives a 404 error.
+
 ## 🚀 Live Demo
 
-🔗 [Live Netlify Link](https://your-netlify-link.netlify.app)  
-🔗 [GitHub Repository](https://github.com/your-username/todo-list-app)
+🔗 [Live Netlify Link](https://todo-list-170.netlify.app)  
+🔗 [GitHub Repository](https://github.com/Harshit-HK/Todo-List-API)
 
 ---
 
