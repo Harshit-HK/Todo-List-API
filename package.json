@@ -1,10 +1,11 @@
 {
   "name": "todo-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Todo List App using HTML, Tailwind CSS, and JavaScript with API Integration",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/output.css"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
