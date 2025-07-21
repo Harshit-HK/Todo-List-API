@@ -1,19 +1,23 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Todo List App | Web Developer Assignment</title>
-  <meta name="description" content="A responsive Todo List App built using JavaScript (ES6), Tailwind CSS, and Dummy API. Includes task search, pagination, date filtering, and live API integration.">
+  <meta name="description"
+    content="A responsive Todo List App built using JavaScript (ES6), Tailwind CSS, and Dummy API. Includes task search, pagination, date filtering, and live API integration.">
 
-  <meta name="keywords" content="Todo App, JavaScript Project, Web Developer Internship, API Integration, Tailwind CSS, Bootstrap, Frontend Assignment, Dummy API, ES6 Todo App, Task Manager App">
-  
+  <meta name="keywords"
+    content="Todo App, JavaScript Project, Web Developer Internship, API Integration, Tailwind CSS, Bootstrap, Frontend Assignment, Dummy API, ES6 Todo App, Task Manager App">
+
   <meta name="author" content="Harshit Keshari" />
-  
+
   <!-- Open Graph for LinkedIn/FB -->
   <meta property="og:title" content="Todo List App - Web Developer Assignment" />
-  <meta property="og:description" content="Built with JavaScript, Tailwind CSS, and Dummy JSON API. Features: search, filter, pagination, add todo, and API error handling." />
+  <meta property="og:description"
+    content="Built with JavaScript, Tailwind CSS, and Dummy JSON API. Features: search, filter, pagination, add todo, and API error handling." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-netlify-link.netlify.app" />
   <meta property="og:image" content="https://your-thumbnail-image-link.jpg" />
@@ -25,12 +29,69 @@
   <link href="./output.css" rel="stylesheet" />
 </head>
 
-<body>
-  <h1 class="text-3xl font-bold underline ">
-    Hello world!
-  </h1>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-6">📝 Todo List App</h1>
+
+    <div class="flex gap-4">
+
+      <!-- Task Title -->
+      <div class="container mb-6 mx-auto">
+        <input required type="text" id="task-title" name="task-title" class="input" />
+        <label class="label">Task Title</label>
+      </div>
+
+      <!-- add task button -->
+      <button id="add-task-btn"
+        class="cursor-pointer transition-all 
+            bg-gray-700 text-white px-6 py-2 rounded-lg border-green-400
+            border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] hover:shadow-xl hover:shadow-green-300 shadow-green-300 active:shadow-none h-14 min-w-32 ">
+        Add Task
+      </button>
+    </div>
+
+    <!-- Task -->
+    <div class="container mb-6">
+      <input required="" type="text" id="task-desc" name="task-desc" class="input" />
+      <label class="label">Task Description</label>
+    </div>
+
+
+    <!-- Filter Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+
+      <!-- Search Box -->
+      <div class="container w-full mt-5">
+        <input required type="text" id="searchInput" name="search" class="input" />
+        <label class="label">Search Task</label>
+      </div>
+
+      <!-- Date From -->
+      <div class="flex items-center gap-3 w-full mt-5">
+        <span class="whitespace-nowrap">From:</span>
+        <input type="date" id="dateFrom" name="dateFrom" class="date-shadow" />
+      </div>
+
+      <!-- Date To -->
+      <div class="flex items-center gap-3 w-full mt-5">
+        <span class="whitespace-nowrap mr-5">To:</span>
+        <input type="date" id="dateTo" name="dateTo" class="date-shadow flex-1" />
+      </div>
+
+
+    </div>
+
+    <!-- Display Todo List -->
+    <div id="todo-container" class="space-y-4"></div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="flex justify-center mt-8 gap-4"></div>
+  </div>
+
+
 
   <!-- Link JavaScript -->
-<script src="./js/main.js" defer></script>
+  <script src="./js/main.js" defer></script>
 </body>
+
 </html>
